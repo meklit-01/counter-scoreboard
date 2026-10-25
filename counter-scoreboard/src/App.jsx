@@ -5,13 +5,10 @@ function App() {
   const [highScore, setHighScore] = useState(0);
 
   function increaseCount() {
-    setCount((prev)=> {
-      const nextCount = Math.min(10, prev + 1);
+   const nextCount = Math.min(10, count + 1);
 
-      setHighScore((best)=> Math.max(best, nextCount));
-
-      return nextCount;
-    })
+   setCount(nextCount);
+   setHighScore((best) => Math.max(best, nextCount));
   }
 
   function decreaseCount() {

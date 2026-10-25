@@ -40,7 +40,9 @@ function App() {
 
       <div className="buttons">
         <button onClick={decreaseCount}>- Decrease</button>
-        <button onClick={increaseCount}>+ Increase</button>
+        <button onClick={increaseCount} disabled={count === 10}>
+          + Increase
+        </button>
         <button onClick={resetCount}>Reset</button>
       </div>
       <p>Highest Score: {highScore}</p>

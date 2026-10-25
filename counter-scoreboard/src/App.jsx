@@ -1,40 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
   const [highScore, setHighScore] = useState(0);
 
-  function increaseCount(){
+  function increaseCount() {
     const nextCount = count + 1;
 
     setCount(nextCount);
 
-    if (nextCount > highScore){
+    if (nextCount > highScore) {
       setHighScore(nextCount);
     }
   }
 
   function decreaseCount() {
-    setCount((previousCount) => previousCount - 1);
+    setCount((previousCount) => Math.max(0, previousCount - 1));
   }
 
-  function resetCount(){
+  function resetCount() {
     setCount(0);
   }
   return (
-    <main className='counter'>
+    <main className="counter">
       <h1>React counter</h1>
 
-      <h2 className={ count > 0 ? "positive" : count < 0 ? "negative" : ""}>{count}</h2>
+      <h2 className={count > 0 ? "positive" : count < 0 ? "negative" : ""}>
+        {count}
+      </h2>
 
       <div className="buttons">
-        <button onClick={decreaseCount} >- Decrease</button>
+        <button onClick={decreaseCount}>- Decrease</button>
         <button onClick={increaseCount}>+ Increase</button>
         <button onClick={resetCount}>Reset</button>
       </div>
       <p>Highest Score: {highScore}</p>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

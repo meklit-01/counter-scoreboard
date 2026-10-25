@@ -27,6 +27,17 @@ function App() {
         {count}
       </h2>
 
+      <div className="progress-track">
+        <div className="progress-fill" style={{ width: `${count * 10}%` }} />
+      </div>
+
+      {count === 10 ? (
+        <p>Maximum score reached!</p>
+      ) : (
+        <p>{10 - count} points remaining</p>
+      )}
+      <p>{count * 10}% completed</p>
+
       <div className="buttons">
         <button onClick={decreaseCount}>- Decrease</button>
         <button onClick={increaseCount}>+ Increase</button>
